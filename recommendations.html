@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Recommendations</title>
+</head>
+<body>
+    <h1>Top 3 Recommendations:</h1>
+    {% if recommendations %}
+        <table>
+            <tr>
+                <th>Maker</th>
+                <th>Bodytype</th>
+                <th>Reg_year</th>
+                <th>Mileage</th>
+                <th>Price</th>
+            </tr>
+            {% for index, row in recommendations.iterrows() %}
+                <tr>
+                    <td>{{ row['Maker'] }}</td>
+                    <td>{{ row['Bodytype'] }}</td>
+                    <td>{{ row['Reg_year'] }}</td>
+                    <td>{{ row['mileage'] }}</td>
+                    <td>{{ row['Price'] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No matching cars found.</p>
+    {% endif %}
+</body>
+</html>
